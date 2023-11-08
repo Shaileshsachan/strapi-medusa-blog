@@ -7,6 +7,8 @@ import { useRouter } from 'next/router';
 
 const AddBlog = () => {
     const router = useRouter();
+    require('dotenv').config({ path: '.env.local' });
+
 
     const [formData, setFormData] = useState({
         title: '',
@@ -56,10 +58,8 @@ const AddBlog = () => {
             console.log('Blog post created:', response.data);
             window.alert("Blog created")
             router.push('/blog')
-            // Optionally, you can redirect the user to another page or show a success message.
         } catch (error) {
             console.error('Error creating blog post:', error);
-            // Handle error, show error message, etc.
         }
     };
 

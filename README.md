@@ -76,5 +76,4 @@ IT IS STRAPI CMS WHICH HAS ONE CONTENT TYPE CALLED "About"
 
 # my-blog-storefront
 IT IS A MEDUSA FRONTEND WHICH HAS BASIC ROUTES
-1. http://127.0.0.1/blog     (home)
-pro
+Note: http://127.0.0.1/blog     (home-route)

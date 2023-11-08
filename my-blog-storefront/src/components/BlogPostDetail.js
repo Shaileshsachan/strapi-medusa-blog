@@ -18,7 +18,7 @@ const BlogPostDetail = ({ postId }) => {
         });
 
         if (response.data && response.data.data) {
-          const postData = response.data.data; // Get the post data from the response
+          const postData = response.data.data;
           const formattedPost = {
             id: postData.id,
             title: postData.attributes.Title,
