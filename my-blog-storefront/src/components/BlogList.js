@@ -69,7 +69,7 @@ const BlogList = () => {
 
             if (response.status === 200) {
                 alert(`Blog Deleted`);
-                window,location.reload()
+                window, location.reload()
             } else {
                 console.error(`Failed to delete blog. Status code: ${response.status}`);
             }
@@ -89,39 +89,34 @@ const BlogList = () => {
 
     return (
         <Container className='mt-4'>
-            <div className="d-flex justify-content-between mb-3">
-                <Button className="btn btn-primary">
-                    <a
-                        href="http://localhost:1337/admin/content-manager/collectionType/api::about.about/create"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                        Add Blog
-                    </a>
-                </Button>
+    <div className="d-flex justify-content-between mb-3">
+        <Button className="btn btn-primary">
+            <Link href="/add">
+                <Button className="text-white btn btn-primary">Add Blog</Button>
+            </Link>
+        </Button>
+    </div>
+    <Row>
+        {blogPosts.map((post) => (
+            <Col key={post.id} md={4} className="mb-4">
+                <Link href={`${post.id}`}>
+                    <Card style={{ cursor: 'pointer', minHeight: '100%' }}>
+                        <Card.Img variant="top" src={'http://localhost:1337' + post.imageUrl} alt={post.title} />
+                        <Card.Body style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <div>
+                                <Card.Title>{post.title}</Card.Title>
+                            </div>
+                            <div style={{ cursor: 'pointer' }} onClick={() => handleDelete(post.id)}>
+                                <FontAwesomeIcon icon={faTrash} />
+                            </div>
+                        </Card.Body>
+                    </Card>
+                </Link>
+            </Col>
+        ))}
+    </Row>
+</Container>
 
-            </div>
-            <Row>
-                {blogPosts.map((post) => (
-                    <Col key={post.id} md={4} className="mb-4">
-                        <Link href={`${post.id}`}>
-                            <Card style={{ cursor: 'pointer' }}>
-                                <Card.Img variant="top" src={'http://localhost:1337' + post.imageUrl} alt={post.title} />
-                                <Card.Body style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                                    <div>
-                                        <Card.Title>{post.title}</Card.Title>
-                                    </div>
-                                    <div style={{ cursor: 'pointer' }} onClick={() => handleDelete(post.id)}>
-                                        <FontAwesomeIcon icon={faTrash} />
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        </Link>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
     );
 };
 
