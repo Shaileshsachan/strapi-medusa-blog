@@ -54,10 +54,6 @@ Before you begin, make sure you have the following installed:
 
 If you find issues or want to contribute to this project, please create a new issue or submit a pull request.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
 Feel free to customize this README according to your specific project needs. Good luck with your Strapi and Medusa integration!
